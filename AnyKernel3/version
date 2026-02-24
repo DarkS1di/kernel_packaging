@@ -1,19 +1,19 @@
-****************************************************
-              ELECTRO KERNEL
-              Get electrified!
 *****************************************************
- Chipset   : Snapdragon662 (Bengal)     
+                   ELECTRO KERNEL
+                  Get electrified!
+*****************************************************
+ Chipset   : Snapdragon662 (Bengal)
  Device    : (Juice/Chime/Citrus/Lime)
- Android   : For all Custom Roms based on A11-13
- Developer : Ash (@hac4us on TG)
- Support   : @ashhcafe on TG
+ Android   : For all Custom Roms based on A11-15
+ Developer : DarkS1di
+ Credits   : Ash (@hac4us on TG)
 *****************************************************
-           PERFORMANCE AND STABLE KERNEL         
+            PERFORMANCE AND STABLE KERNEL
 *****************************************************
-KERNEL VERSION-4.19.306
+ Kernel version : 4.19.325
 *****************************************************
-                  MAIN FEATURES                 
+                    MAIN FEATURES
 *****************************************************
- Balance between performance and battery life   
- Compiled kernel with Neutron Clang 18.0.0
+ Balance between performance and battery life
+ Compiled kernel with ZyC Clang 20.0.0
 *****************************************************
