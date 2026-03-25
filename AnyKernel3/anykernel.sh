@@ -38,9 +38,24 @@ PATCH_VBMETA_FLAG=auto;
 # import functions/variables and setup patching - see for reference (DO NOT REMOVE)
 . tools/ak3-core.sh;
 
+SYS_NAMES="$(getprop ro.product.device) $(getprop ro.build.product) $(getprop ro.product.vendor.device) $(getprop ro.vendor.product.device)"
+
+case " $SYS_NAMES " in
+  *" citrus "*)
+    mv citrus/dtbo.img dtbo.img ;;
+  *" lime "* | *" lemon "* | *" pomelo "*)
+    mv lime/dtbo.img dtbo.img ;;
+  *)
+    rm -f dtb ;;
+esac
+
 # boot install
 split_boot; # use split_boot to skip ramdisk unpack, e.g. for devices with init_boot ramdisk
 
 flash_boot; # use flash_boot to skip ramdisk repack, e.g. for devices with init_boot ramdisk
+
+if [ -f "dtbo.img" ]; then
+    flash_dtbo;
+fi
 ## end boot install
 

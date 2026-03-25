@@ -1,20 +1,43 @@
 #!/bin/bash
 set -e
 
-if [ "$#" -ne 2 ]; then
-    echo "Usage: $0 <path to kernel binary> <zip name>"
+if [ "$#" -ne 5 ]; then
+    echo "Usage: $0 <kernel> <dtb> <dtbo_citrus> <dtbo_lime> <zip>"
     exit 1
 fi
 
-KERNELBIN="$1"
-ZIPNAME="$2"
+KERNEL="$1"
+DTB="$2"
+DTBO_CITRUS="$3"
+DTBO_LIME="$4"
+ZIP="$5"
 
-if [ ! -f "$KERNELBIN" ]; then
-    echo "Error: '$KERNELBIN' is either not a file or doesn't exist"
+if [ ! -f "$KERNEL" ]; then
+    echo "Error: '$KERNEL' is either not a file or doesn't exist"
     exit 1
 fi
 
-cp -f "$KERNELBIN" AnyKernel3/Image
+if [ ! -f "$DTB" ]; then
+    echo "Error: '$DTB' is either not a file or doesn't exist"
+    exit 1
+fi
+
+if [ ! -f "$DTBO_CITRUS" ]; then
+    echo "Error: '$DTBO_CITRUS' is either not a file or doesn't exist"
+    exit 1
+fi
+
+if [ ! -f "$DTBO_LIME" ]; then
+    echo "Error: '$DTBO_LIME' is either not a file or doesn't exist"
+    exit 1
+fi
+
+mkdir -p AnyKernel3/citrus
+mkdir -p AnyKernel3/lime
+cp -f "$KERNEL" AnyKernel3/Image
+cp -f "$DTB" AnyKernel3/dtb
+cp -f "$DTBO_CITRUS" AnyKernel3/citrus/dtbo.img
+cp -f "$DTBO_LIME" AnyKernel3/lime/dtbo.img
 
 cd AnyKernel3
-zip -r9 "../$ZIPNAME" META-INF tools anykernel.sh Image version
+zip -r9 "../$ZIP" citrus lime META-INF tools anykernel.sh dtb Image version
