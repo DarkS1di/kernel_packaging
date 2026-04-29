@@ -4,7 +4,7 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=Electro Kernel by NoxS1d
+kernel.string=ElectroX Kernel by NoxS1d
 do.devicecheck=1
 do.modules=0
 do.systemless=1
