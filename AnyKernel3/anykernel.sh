@@ -55,7 +55,7 @@ split_boot; # use split_boot to skip ramdisk unpack, e.g. for devices with init_
 flash_boot; # use flash_boot to skip ramdisk repack, e.g. for devices with init_boot ramdisk
 
 if [ -f "dtbo.img" ]; then
-    flash_dtbo;
+    flash_generic dtbo;
 fi
 ## end boot install
 
